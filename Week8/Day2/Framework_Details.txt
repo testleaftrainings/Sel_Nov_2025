@@ -1,0 +1,46 @@
+1. Framework -> Brief Introduction with the libraries that we used
+
+It is a hybrid framework, which is built based on Page Object Model design pattern. We used Maven as project to have better dependency management.
+
+The external libraries that we have in project are
+Selenium WebDriver - Is used to interact with the Web application
+TestNG - Is used for controlled test execution 
+Apache POI -> Is used to support data driven in our project
+Cucumber -> Is used to support BDD automation
+ExtentReport -> Is used to generate html summary report
+
+2. Framework Components
+Browser(I) -> Is used to design the methods for browser related interactions
+Element (I) -> Is used to design the methods for element related interactions
+SeleniumBase -> Implementation class for both Browser & Element Interfaces
+			 -> Library of having all the reusabale methods for automation in our framework
+			 -> It is a wrapper class, which contains wrapper methods
+			 -> Exception handling is implemented commonly in all the methods using try / catch block
+ProjectSpecificMethods -> Base class for all the pages and test cases class. 
+		       It contains common methods and variables for all the pages and the test cases
+pages -> To have all the java classes for each pages
+testcases -> To have all the java classes for each test cases 
+Utils -> To have utility programs to interact with external application
+	  DataLibrary -> to read data from excel
+	  Reporter -> Having the ExtentReport configurations
+			 
+3. Hierarchy of classes
+
+DriverInstance
+	Reporter
+		SeleniumBase
+			ProjectSpecificMethods
+				Pages & Testcases
+
+4. Execution flow
+
+@BeforeSuite					-> startReport() [Reporter]
+	@BeforeTest					-> setValues() [Testcase]
+		@BeforeClass			-> startTestCase() [Reporter]
+			@DataProvider		-> fetchData() [ProjectSpecificMethods]
+				@BeforeMethod	-> preCondition() [ProjectSpecificMethods]
+					@Test		-> Testcase method
+				@AfterMethod	-> postCondition() [ProjectSpecificMethods]
+		@AfterClass 			-> NA
+	@AfterTest 					-> NA
+@AfterSuite						-> endResult() [Reporter]

@@ -1,0 +1,29 @@
+STAR -> Situation Task Action Result
+
+-------------------------------------------------------
+
+Scenario1: Enhance framework with dynamic test data
+
+Situation: We are using Excel to keep the data. Which is providing static data to the test cases. Client has raised this a concern as data whatever we create using automation looks like junk data in data base
+
+Task: I was asked to implement dynamic data for the test cases
+
+Action: I have explored APIs and libraries to dynamic data  and implemented faker one of the java library. Faker is very simple and easy to implement in our framework. 
+
+Result: Data created using Faker is dynamic and looks like real data.
+
+
+
+
+Scenario 2: Handling synchronization issues in test automation
+
+Situation: We encountered frequent test failures due to synchronization issues where the automation scripts were attempting to interact with elements before they were fully loaded or ready for interaction. This led to unstable test results and inconsistent test execution.
+
+Task: We were asked to resolve the synchronization issues to make the test executions more stable and prevent false failures caused by timing problems.
+
+Action: We investigated and identified that implicit waits were not sufficient to handle dynamic loading times. To address this, we implemented explicit waits using conditions like element visibility, clickability, and presence. Additionally, we introduced retry mechanisms to reattempt actions when intermittent issues occurred. This approach was applied across the test scripts, particularly for dynamic and slow-loading elements.
+
+Result: As a result, our test execution became more reliable, leading to greater confidence in the test results.
+
+
+
